@@ -17,10 +17,10 @@ type Category = {
 };
 
 type CategoriesProps = {
-  item: Category[];
+  categories: Category[];
 };
 
-const Categories = ({ item }: CategoriesProps) => {
+const Categories = ({ categories }: CategoriesProps) => {
   const [activeColor, setActiveColor] = React.useState<Number>();
 
   return (
@@ -29,7 +29,7 @@ const Categories = ({ item }: CategoriesProps) => {
       showsHorizontalScrollIndicator={false}
       className="space-x-4"
     >
-      {item.map(({ id, name, image }) => (
+      {categories.map(({ id, name, image }) => (
         <View key={id} className={"flex items-center justify-center"}>
           <TouchableOpacity
             onPress={() => setActiveColor(id)}

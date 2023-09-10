@@ -54,7 +54,7 @@ const RestaurantCard = ({ restaurants }: RestaurantCardProps) => {
         <TouchableWithoutFeedback
           key={item.id}
           // @ts-ignore
-          onPress={() => navigation.navigate("Restaurant")}
+          onPress={() => navigation.navigate("Restaurant", { ...item })}
         >
           <View
             className="rounded-xl shadow-2xl ml-5 bg-white"

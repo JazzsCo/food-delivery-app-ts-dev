@@ -12,6 +12,7 @@ import React from "react";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
 import { themeColors } from "../theme";
+import { StackParamsList } from "../Navigation";
 
 type Dish = {
   id: number;
@@ -37,13 +38,15 @@ type Restaurant = {
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
-  // @ts-ignore
-  const item = useRoute<Restaurant>();
+  const { params } = useRoute<RouteProp<StackParamsList,>>();
 
   return (
     <SafeAreaView>
       <View className="relative">
-        <ImageBackground source={item.image} className="w-full h-[75%]" />
+        <ImageBackground
+          source={{ uri: params.}}
+          className="w-full h-[75%]"
+        />
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={{ backgroundColor: themeColors.bgColor(2) }}

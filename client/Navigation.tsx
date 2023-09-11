@@ -6,7 +6,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
 
-const Stack = createNativeStackNavigator();
+export type StackParamsList = {
+  Home: undefined;
+  Restaurant: undefined;
+};
+
+const Stack = createNativeStackNavigator<StackParamsList>();
 
 const Navigation = () => {
   return (

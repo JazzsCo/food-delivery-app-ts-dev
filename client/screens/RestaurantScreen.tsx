@@ -14,17 +14,18 @@ import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { themeColors } from "../theme";
-import { RootStackParamsList } from "../Navigation";
+import { RootStackList } from "../Navigation";
 
 type RestaurantScreenNavigationProps = NativeStackNavigationProp<
-  RootStackParamsList,
+  RootStackList,
   "Restaurant"
 >;
 
-type RestaurantScreenRouteProps = RouteProp<RootStackParamsList, "Restaurant">;
+type RestaurantScreenRouteProps = RouteProp<RootStackList, "Restaurant">;
 
 const RestaurantScreen = () => {
   const navigation = useNavigation<RestaurantScreenNavigationProps>();
+
   const {
     params: { item },
   } = useRoute<RestaurantScreenRouteProps>();

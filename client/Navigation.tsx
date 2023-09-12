@@ -5,14 +5,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "./screens/HomeScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
-import { Restaurant } from "./components/RestaurantCard";
+import { Restaurant } from "./types";
 
-export type RootStackParamsList = {
+export type RootStackList = {
   Home: undefined;
   Restaurant: { item: Restaurant };
 };
 
-const Stack = createNativeStackNavigator<RootStackParamsList>();
+const Stack = createNativeStackNavigator<RootStackList>();
 
 const Navigation = () => {
   return (

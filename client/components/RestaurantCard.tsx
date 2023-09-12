@@ -3,7 +3,6 @@ import {
   Text,
   ScrollView,
   Image,
-  ImageProps,
   TouchableWithoutFeedback,
 } from "react-native";
 import React from "react";
@@ -12,36 +11,15 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { themeColors } from "../theme";
-import { RootStackParamsList } from "../Navigation";
-
-export type Dish = {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image: ImageProps;
-};
-
-export type Restaurant = {
-  id: number;
-  name: string;
-  image: ImageProps;
-  description: string;
-  lng: number;
-  lat: number;
-  address: string;
-  stars: number;
-  reviews: string;
-  category: string;
-  dishes: Dish[];
-};
+import { RootStackList } from "../Navigation";
+import { Restaurant } from "../types";
 
 type RestaurantCardProps = {
   restaurants: Restaurant[];
 };
 
 type RestaurantCardNavigationProps = NativeStackNavigationProp<
-  RootStackParamsList,
+  RootStackList,
   "Restaurant"
 >;
 

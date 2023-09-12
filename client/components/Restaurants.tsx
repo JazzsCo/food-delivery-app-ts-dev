@@ -1,37 +1,9 @@
-import { View, Text, TouchableOpacity, ImageProps } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 
 import { themeColors } from "../theme";
 import RestaurantCard from "./RestaurantCard";
-
-type Dish = {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image: ImageProps;
-};
-
-type Restaurant = {
-  id: number;
-  name: string;
-  image: ImageProps;
-  description: string;
-  lng: number;
-  lat: number;
-  address: string;
-  stars: number;
-  reviews: string;
-  category: string;
-  dishes: Dish[];
-};
-
-type Featured = {
-  id: number;
-  title: string;
-  description: string;
-  restaurants: Restaurant[];
-};
+import { Featured } from "../types";
 
 type RestaurantsProps = {
   featured: Featured;

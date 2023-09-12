@@ -7,12 +7,14 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { themeColors } from "../theme";
+import { RootStackParamsList } from "../Navigation";
 
-type Dish = {
+export type Dish = {
   id: number;
   name: string;
   description: string;
@@ -20,7 +22,7 @@ type Dish = {
   image: ImageProps;
 };
 
-type Restaurant = {
+export type Restaurant = {
   id: number;
   name: string;
   image: ImageProps;
@@ -38,8 +40,13 @@ type RestaurantCardProps = {
   restaurants: Restaurant[];
 };
 
+type RestaurantCardNavigationProps = NativeStackNavigationProp<
+  RootStackParamsList,
+  "Restaurant"
+>;
+
 const RestaurantCard = ({ restaurants }: RestaurantCardProps) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<RestaurantCardNavigationProps>();
 
   return (
     <ScrollView
@@ -53,8 +60,11 @@ const RestaurantCard = ({ restaurants }: RestaurantCardProps) => {
       {restaurants.map((item) => (
         <TouchableWithoutFeedback
           key={item.id}
-          // @ts-ignore
-          onPress={() => navigation.navigate("Restaurant", { ...item })}
+          onPress={() =>
+            navigation.navigate("Restaurant", {
+              item,
+            })
+          }
         >
           <View
             className="rounded-xl shadow-2xl ml-5 bg-white"

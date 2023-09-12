@@ -9,44 +9,30 @@ import {
   ImageBackground,
 } from "react-native";
 import React from "react";
-import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
 import { themeColors } from "../theme";
-import { StackParamsList } from "../Navigation";
+import { RootStackParamsList } from "../Navigation";
 
-type Dish = {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image: ImageProps;
-};
+type RestaurantScreenNavigationProps = NativeStackNavigationProp<
+  RootStackParamsList,
+  "Restaurant"
+>;
 
-type Restaurant = {
-  id: number;
-  name: string;
-  image: ImageProps;
-  description: string;
-  lng: number;
-  lat: number;
-  address: string;
-  stars: number;
-  reviews: string;
-  category: string;
-  dishes: Dish[];
-};
+type RestaurantScreenRouteProps = RouteProp<RootStackParamsList, "Restaurant">;
 
 const RestaurantScreen = () => {
-  const navigation = useNavigation();
-  const { params } = useRoute<RouteProp<StackParamsList,>>();
+  const navigation = useNavigation<RestaurantScreenNavigationProps>();
+  const {
+    params: { item },
+  } = useRoute<RestaurantScreenRouteProps>();
 
   return (
     <SafeAreaView>
       <View className="relative">
-        <ImageBackground
-          source={{ uri: params.}}
-          className="w-full h-[75%]"
-        />
+        <ImageBackground source={item.image} className="w-full h-[75%]" />
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={{ backgroundColor: themeColors.bgColor(2) }}

@@ -1,20 +1,8 @@
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Image,
-  ImageProps,
-} from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import React from "react";
 
 import { themeColors } from "../theme";
-
-type Category = {
-  id: number;
-  name: string;
-  image: ImageProps;
-};
+import { Category } from "../types";
 
 type CategoriesProps = {
   categories: Category[];

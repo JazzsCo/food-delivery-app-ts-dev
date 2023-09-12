@@ -1,5 +1,11 @@
 import { ImageProps } from "react-native";
 
+export type Category = {
+  id: number;
+  name: string;
+  image: ImageProps;
+};
+
 export type Dish = {
   id: number;
   name: string;

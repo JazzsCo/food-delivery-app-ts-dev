@@ -7,6 +7,7 @@ import { Restaurant } from "./types";
 import HomeScreen from "./screens/HomeScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
 import CartScreen from "./screens/CartScreen";
+import PreparingOrderScreen from "./screens/PreparingOrderScreen";
 
 export type RootStackList = {
   Home: undefined;
@@ -31,6 +32,7 @@ const Navigation = () => {
           options={{ presentation: "modal" }}
           component={CartScreen}
         />
+        <Stack.Screen name="PreparingOrder" component={PreparingOrderScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

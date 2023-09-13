@@ -65,7 +65,7 @@ const RestaurantScreen = () => {
         <ScrollView
           className="p-1"
           contentContainerStyle={{
-            paddingBottom: 10,
+            paddingBottom: 3,
           }}
           showsVerticalScrollIndicator={false}
         >

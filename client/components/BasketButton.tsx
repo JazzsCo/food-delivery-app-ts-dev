@@ -1,13 +1,23 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import * as Icon from "react-native-feather";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { themeColors } from "../theme";
+import { RootStackList } from "../Navigation";
+
+type BasketButtonNavigationProps = NativeStackNavigationProp<
+  RootStackList,
+  "Restaurant"
+>;
 
 const BasketButton = () => {
+  const navigation = useNavigation<BasketButtonNavigationProps>();
+
   return (
     <TouchableOpacity
-      // onPress={() => navigation.navigate("Cart")}
+      onPress={() => navigation.navigate("Cart")}
       // disabled={!totalPrice}
       style={{ backgroundColor: themeColors.bgColor(2) }}
       className="sticky bottom-1 w-full rounded-full"

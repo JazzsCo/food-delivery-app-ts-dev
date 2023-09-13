@@ -20,6 +20,7 @@ const Restaurants = ({ featured }: RestaurantsProps) => {
                 <Text className="font-medium text-lg">{title}</Text>
                 <Text className="text-sm text-gray-700">{description}</Text>
               </View>
+
               <TouchableOpacity>
                 <Text
                   style={{ color: themeColors.text }}
@@ -29,6 +30,7 @@ const Restaurants = ({ featured }: RestaurantsProps) => {
                 </Text>
               </TouchableOpacity>
             </View>
+
             <RestaurantCard restaurants={restaurants} />
           </View>
         )

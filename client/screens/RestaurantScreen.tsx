@@ -7,6 +7,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { themeColors } from "../theme";
 import { RootStackList } from "../Navigation";
 import MenuItem from "../components/MenuItem";
+import BasketButton from "../components/BasketButton";
 
 type RestaurantScreenNavigationProps = NativeStackNavigationProp<
   RootStackList,
@@ -42,13 +43,16 @@ const RestaurantScreen = () => {
             source={require("../assets/images/fullStar.png")}
             className="h-4 w-4"
           />
+
           <Text className="text-base text-green-700">{item.stars}</Text>
           <Text className="text-base text-gray-700">
             {" "}
             {item.reviews} review
           </Text>
+
           <View className="flex-row items-center">
             <Icon.MapPin color="black" width={15} height={15} />
+
             <Text className="text-base text-gray-700">
               {" "}
               Nearby · {item.address}
@@ -58,7 +62,13 @@ const RestaurantScreen = () => {
 
         <Text className="text-2xl font-medium mt-2">Menus</Text>
 
-        <ScrollView showsVerticalScrollIndicator={false} className="p-1">
+        <ScrollView
+          className="p-1"
+          contentContainerStyle={{
+            paddingBottom: 10,
+          }}
+          showsVerticalScrollIndicator={false}
+        >
           {item.dishes.map(({ id, name, image, price, description }) => (
             <MenuItem
               key={id}
@@ -71,7 +81,10 @@ const RestaurantScreen = () => {
           ))}
         </ScrollView>
       </View>
-      {/* <BasketButton /> */}
+
+      <View className="flex justify-center pt-2 mx-2 bg-white">
+        <BasketButton />
+      </View>
     </View>
   );
 };

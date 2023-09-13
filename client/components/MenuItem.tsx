@@ -14,11 +14,14 @@ const MenuItem = ({ name, image, price, description }: Dish) => {
       className="flex-row w-full p-3 rounded-xl shadow-2xl mb-3 bg-white"
     >
       <Image source={image} className="w-24 h-24 rounded-xl shadow" />
+
       <View className="ml-3 flex-1 space-y-1">
         <Text className="text-xl font-medium">{name}</Text>
         <Text className="text-base text-gray-700">{description}</Text>
+
         <View className="flex-row justify-between">
           <Text className="text-lg font-medium">$ {price}</Text>
+
           <View className="flex-row space-x-2 mt-1">
             <TouchableOpacity
               //   onPress={() => handleDecrease()}
@@ -28,12 +31,14 @@ const MenuItem = ({ name, image, price, description }: Dish) => {
             >
               <Icon.Minus strokeWidth={2} stroke={"white"} />
             </TouchableOpacity>
+
             <Text
               style={{ color: themeColors.text }}
               className="text-lg font-medium"
             >
               0{/* {cartItemsById.length} */}
             </Text>
+
             <TouchableOpacity
               //   onPress={() => hendleIncrease()}
               style={{ backgroundColor: themeColors.bgColor(2) }}

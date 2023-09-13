@@ -12,7 +12,9 @@ const SearchBar = () => {
         className="flex-row flex-1 items-center p-2 border rounded-xl"
       >
         <Icon.Search width={20} height={20} stroke={themeColors.text} />
+
         <TextInput placeholder="Restaurant" className="ml-2 flex-1 text-base" />
+
         <View
           style={{ borderColor: themeColors.text }}
           className="flex-row items-center space-x-1 border-l-[1px] pl-1"
@@ -21,6 +23,7 @@ const SearchBar = () => {
           <Text className="text-base text-gray-700">New York, NYC</Text>
         </View>
       </View>
+
       <TouchableOpacity
         style={{
           borderColor: themeColors.text,

@@ -20,7 +20,7 @@ const BasketButton = () => {
       onPress={() => navigation.navigate("Cart")}
       // disabled={!totalPrice}
       style={{ backgroundColor: themeColors.bgColor(2) }}
-      className="sticky bottom-1 w-full rounded-full"
+      className="sticky bottom-3 w-full rounded-full"
     >
       <View className="flex-row justify-around p-4">
         <Icon.ShoppingCart

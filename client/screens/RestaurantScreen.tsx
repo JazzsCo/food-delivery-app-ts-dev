@@ -82,7 +82,7 @@ const RestaurantScreen = () => {
         </ScrollView>
       </View>
 
-      <View className="flex justify-center pt-2 mx-2 bg-white">
+      <View className="mx-4 bg-white">
         <BasketButton />
       </View>
     </View>

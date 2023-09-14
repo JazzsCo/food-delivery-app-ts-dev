@@ -8,12 +8,14 @@ import HomeScreen from "./screens/HomeScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
 import CartScreen from "./screens/CartScreen";
 import PreparingOrderScreen from "./screens/PreparingOrderScreen";
+import DeliveryScreen from "./screens/DeliveryScreen";
 
 export type RootStackList = {
   Home: undefined;
   Restaurant: { item: Restaurant };
   Cart: undefined;
   PreparingOrder: undefined;
+  Delivery: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackList>();
@@ -33,6 +35,7 @@ const Navigation = () => {
           component={CartScreen}
         />
         <Stack.Screen name="PreparingOrder" component={PreparingOrderScreen} />
+        <Stack.Screen name="Delivery" component={DeliveryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -17,7 +17,7 @@ const OrderTotal = () => {
   return (
     <View
       style={{ backgroundColor: themeColors.bgColor(0.7) }}
-      className="sticky -bottom-1 rounded-t-3xl py-6 px-8 space-y-4"
+      className="sticky bottom-1 rounded-t-3xl py-6 px-8 space-y-4"
     >
       <View className="flex-row">
         <Image

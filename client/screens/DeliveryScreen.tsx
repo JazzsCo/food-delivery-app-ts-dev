@@ -39,7 +39,7 @@ const DeliveryScreen = () => {
         />
       </MapView>
 
-      {/* <View className="rounded-t-3xl -mt-12 p-5 bg-white border-t-gray-900">
+      <View className="rounded-t-3xl -mt-12 p-5 bg-white border-t-gray-900">
         <View className="flex-row justify-between pt-4 px-2">
           <View>
             <Text
@@ -100,7 +100,7 @@ const DeliveryScreen = () => {
             </TouchableOpacity>
           </View>
         </View>
-      </View> */}
+      </View>
     </View>
   );
 };

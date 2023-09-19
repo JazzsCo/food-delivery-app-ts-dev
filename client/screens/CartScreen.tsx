@@ -8,6 +8,7 @@ import { themeColors } from "../theme";
 import { featured } from "../constants";
 import OrderTotal from "../components/OrderTotal";
 import { RootStackList } from "../Navigation";
+import MenuItem from "../components/MenuItem";
 
 const restaurant = featured.restaurants[0];
 
@@ -52,61 +53,21 @@ const CartScreen = () => {
         className="max-h-80 px-4"
         showsVerticalScrollIndicator={false}
       >
-        {restaurant.dishes.map((item) => (
-          <View
-            key={item.id}
-            className="rounded-xl shadow-xl bg-white p-3 mb-3"
-            style={{
-              shadowColor: themeColors.bgColor(5),
-            }}
-          >
-            <View className="flex-row items-center">
-              <Text
-                style={{ color: themeColors.text }}
-                className="text-xl font-medium ml-1"
-              >
-                {/* {count} */} 0
-              </Text>
-
-              <Text
-                style={{ color: themeColors.text }}
-                className="text-base font-medium mt-[1px] ml-1"
-              >
-                x
-              </Text>
-
-              <Image
-                source={item.image}
-                className="w-16 h-16 rounded-xl shadow ml-2"
-              />
-
-              <View className="ml-2 flex-1">
-                <Text className="text-xl font-medium">{item.name}</Text>
-                <Text className="text-base text-gray-700">
-                  {item.description}
-                </Text>
-              </View>
-
-              <Text className="text-lg font-medium mr-4">$ {item.price}</Text>
-
-              <TouchableOpacity
-                // onPress={() => handleDecrease(item)}
-                style={{ backgroundColor: themeColors.bgColor(2) }}
-                className="p-1 rounded-full"
-              >
-                <Icon.Minus
-                  strokeWidth={2}
-                  width={20}
-                  height={20}
-                  stroke={"white"}
-                />
-              </TouchableOpacity>
-            </View>
-          </View>
+        {restaurant.dishes.map(({ id, name, image, price, description }) => (
+          <MenuItem
+            key={id}
+            id={id}
+            name={name}
+            image={image}
+            price={price}
+            description={description}
+          />
         ))}
       </ScrollView>
 
-      <OrderTotal />
+      <View className="relative">
+        <OrderTotal />
+      </View>
     </View>
   );
 };

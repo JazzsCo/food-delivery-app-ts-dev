@@ -21,7 +21,7 @@ const CartScreen = () => {
   const navigation = useNavigation<CartScreenNavigationProps>();
 
   return (
-    <View className="relative bg-white">
+    <View className="flex-1 relative bg-white">
       <TouchableOpacity
         onPress={() => navigation.goBack()}
         style={{ backgroundColor: themeColors.bgColor(2) }}
@@ -50,8 +50,11 @@ const CartScreen = () => {
       </Text>
 
       <ScrollView
-        className="max-h-80 px-4"
         showsVerticalScrollIndicator={false}
+        className="px-4"
+        contentContainerStyle={{
+          paddingBottom: 20,
+        }}
       >
         {restaurant.dishes.map(({ id, name, image, price, description }) => (
           <MenuItem
@@ -65,9 +68,7 @@ const CartScreen = () => {
         ))}
       </ScrollView>
 
-      <View className="relative">
-        <OrderTotal />
-      </View>
+      <OrderTotal />
     </View>
   );
 };

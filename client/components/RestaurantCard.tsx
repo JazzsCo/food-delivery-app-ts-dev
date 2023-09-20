@@ -1,3 +1,4 @@
+import React from "react";
 import {
   View,
   Text,
@@ -5,7 +6,6 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
-import React from "react";
 import * as Icon from "react-native-feather";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";

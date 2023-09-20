@@ -1,6 +1,6 @@
-import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import React from "react";
 import * as Icon from "react-native-feather";
+import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 

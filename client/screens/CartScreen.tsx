@@ -1,14 +1,14 @@
 import React from "react";
-import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import * as Icon from "react-native-feather";
+import { useNavigation } from "@react-navigation/native";
+import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { themeColors } from "../theme";
 import { featured } from "../constants";
-import OrderTotal from "../components/OrderTotal";
 import { RootStackList } from "../Navigation";
 import MenuItem from "../components/MenuItem";
+import OrderTotal from "../components/OrderTotal";
 
 const restaurant = featured.restaurants[0];
 

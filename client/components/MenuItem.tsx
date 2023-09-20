@@ -1,10 +1,10 @@
 import React from "react";
 import * as Icon from "react-native-feather";
+import { useNavigation } from "@react-navigation/native";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 
 import { Dish } from "../types";
 import { themeColors } from "../theme";
-import { useNavigation } from "@react-navigation/native";
 
 const MenuItem = ({ name, image, price, description }: Dish) => {
   const navigation = useNavigation();

@@ -1,9 +1,9 @@
-import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 
+import { Featured } from "../types";
 import { themeColors } from "../theme";
 import RestaurantCard from "./RestaurantCard";
-import { Featured } from "../types";
 
 type RestaurantsProps = {
   featured: Featured;

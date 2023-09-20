@@ -30,6 +30,7 @@ const Categories = ({ categories }: CategoriesProps) => {
           >
             <Image style={{ width: 45, height: 45 }} source={image} />
           </TouchableOpacity>
+
           <Text
             style={{ fontWeight: id === activeColor ? "500" : "normal" }}
             className={"text-gray-700 text-sm"}

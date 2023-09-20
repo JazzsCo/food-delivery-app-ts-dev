@@ -1,6 +1,6 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import React from "react";
 import * as Icon from "react-native-feather";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 
 import { themeColors } from "../theme";
 

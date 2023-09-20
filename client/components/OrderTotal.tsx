@@ -1,9 +1,9 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { themeColors } from "../theme";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackList } from "../Navigation";
 
 type OrderTotalNavigationProps = NativeStackNavigationProp<

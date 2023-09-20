@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
 import * as Icon from "react-native-feather";
 import MapView, { Marker } from "react-native-maps";
+import { useNavigation } from "@react-navigation/native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { themeColors } from "../theme";
 import { featured } from "../constants";
-import { useNavigation } from "@react-navigation/native";
 import { RootStackList } from "../Navigation";
 
 type DeliveryScreenNavigationProps = NativeStackNavigationProp<RootStackList>;
@@ -48,9 +48,11 @@ const DeliveryScreen = () => {
             >
               Estimated Arrival
             </Text>
+
             <Text className="text-3xl font-extrabold text-gray-700">
               20-30 Minutes
             </Text>
+
             <Text
               style={{ color: themeColors.text }}
               className="mt-1 text-gray-700 font-bold"
@@ -58,6 +60,7 @@ const DeliveryScreen = () => {
               Your Order is own its way
             </Text>
           </View>
+
           <Image
             className="h-28 w-28"
             source={require("../assets/images/bikeGuy2.gif")}
@@ -83,6 +86,7 @@ const DeliveryScreen = () => {
             <Text className="text-lg font-bold text-white">Jazzs Co</Text>
             <Text className="text-white font-semibold">Your Rider</Text>
           </View>
+
           <View className="flex-row items-center space-x-3 mr-3">
             <TouchableOpacity className="bg-white p-2 rounded-full">
               <Icon.Phone

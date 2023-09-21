@@ -8,6 +8,9 @@ import { themeColors } from "../theme";
 import { RootStackList } from "../Navigation";
 import MenuItem from "../components/MenuItem";
 import BasketButton from "../components/BasketButton";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { selectedRestaurant, setRestaurant } from "../slices/restaurantSlice";
+import { emptyCart } from "../slices/cartSlice";
 
 type RestaurantScreenNavigationProps = NativeStackNavigationProp<
   RootStackList,
@@ -22,6 +25,18 @@ const RestaurantScreen = () => {
   const {
     params: { item },
   } = useRoute<RestaurantScreenRouteProps>();
+
+  const dispatch = useAppDispatch();
+
+  const restaurant = useAppSelector(selectedRestaurant);
+
+  React.useEffect(() => {
+    if (restaurant && restaurant[0].id !== item.id) {
+      dispatch(emptyCart());
+    }
+
+    dispatch(setRestaurant(item));
+  }, []);
 
   return (
     <View className="flex-1 relative">

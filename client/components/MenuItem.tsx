@@ -1,13 +1,18 @@
 import React from "react";
 import * as Icon from "react-native-feather";
-import { useNavigation } from "@react-navigation/native";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 
 import { Dish } from "../types";
 import { themeColors } from "../theme";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { selectedCartItemsById } from "../slices/cartSlice";
 
-const MenuItem = ({ name, image, price, description }: Dish) => {
-  const navigation = useNavigation();
+const MenuItem = ({ id, name, image, price, description }: Dish) => {
+  const dispatch = useAppDispatch();
+
+  // const cartItemsById = useAppSelector((state) =>
+  //   selectedCartItemsById(state,{id: pa})
+  // );
 
   return (
     <View

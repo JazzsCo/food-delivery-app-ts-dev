@@ -39,10 +39,8 @@ export const { addToCart, removeToCart, emptyCart } = cartSlice.actions;
 
 export const selectedCartItems = (state: RootState) => state.cart.items;
 
-export const selectedCartItemsById = (
-  state: RootState,
-  id: PayloadAction<number>
-) => state.cart.items.filter((item) => item.id === Number(id));
+export const selectedCartItemsById = (state: RootState, id: any) =>
+  state.cart.items.filter((item) => item.id === Number(id));
 
 export const selectedCartItemsPrice = (state: RootState) =>
   state.cart.items.reduce((total, item) => (total += item.price), 0);

@@ -5,14 +5,26 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { Dish } from "../types";
 import { themeColors } from "../theme";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { selectedCartItemsById } from "../slices/cartSlice";
+import {
+  addToCart,
+  removeToCart,
+  selectedCartItemsById,
+} from "../slices/cartSlice";
 
-const MenuItem = ({ id, name, image, price, description }: Dish) => {
+const MenuItem = (item: Dish) => {
   const dispatch = useAppDispatch();
 
-  // const cartItemsById = useAppSelector((state) =>
-  //   selectedCartItemsById(state,{id: pa})
-  // );
+  const cartItemsById = useAppSelector((state) =>
+    selectedCartItemsById(state, item.id)
+  );
+
+  const handleIncrease = () => {
+    dispatch(addToCart(item));
+  };
+
+  const handleDecrease = () => {
+    dispatch(removeToCart(item));
+  };
 
   return (
     <View
@@ -22,18 +34,21 @@ const MenuItem = ({ id, name, image, price, description }: Dish) => {
       }}
     >
       <View className="flex-row items-center">
-        <Image source={image} className="w-16 h-16 rounded-xl shadow ml-2" />
+        <Image
+          source={item.image}
+          className="w-16 h-16 rounded-xl shadow ml-2"
+        />
 
         <View className="ml-2 flex-1">
-          <Text className="text-xl font-medium">{name}</Text>
-          <Text className="text-gray-700">{description}</Text>
-          <Text className="text-gray-950 mt-1">$ {price}</Text>
+          <Text className="text-xl font-medium">{item.name}</Text>
+          <Text className="text-gray-700">{item.description}</Text>
+          <Text className="text-gray-950 mt-1">$ {item.price}</Text>
         </View>
 
         <View className="flex-row space-x-2 mt-1">
           <TouchableOpacity
-            //   onPress={() => handleDecrease()}
-            //   disabled={!cartItemsById.length}
+            onPress={() => handleDecrease()}
+            disabled={!cartItemsById.length}
             style={{ backgroundColor: themeColors.bgColor(2) }}
             className="p-1 rounded-full shadow"
           >
@@ -49,11 +64,11 @@ const MenuItem = ({ id, name, image, price, description }: Dish) => {
             style={{ color: themeColors.text }}
             className="text-lg font-medium"
           >
-            0{/* {cartItemsById.length} */}
+            {cartItemsById.length}
           </Text>
 
           <TouchableOpacity
-            //   onPress={() => hendleIncrease()}
+            onPress={() => handleIncrease()}
             style={{ backgroundColor: themeColors.bgColor(2) }}
             className="p-1 rounded-full shadow"
           >

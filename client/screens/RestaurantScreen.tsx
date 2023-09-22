@@ -30,13 +30,13 @@ const RestaurantScreen = () => {
 
   const restaurant = useAppSelector(selectedRestaurant);
 
-  React.useEffect(() => {
-    if (restaurant && restaurant[0].id !== item.id) {
-      dispatch(emptyCart());
-    }
+  // React.useEffect(() => {
+  //   if (restaurant && restaurant[0].id !== item.id) {
+  //     dispatch(emptyCart());
+  //   }
 
-    dispatch(setRestaurant(item));
-  }, []);
+  //   dispatch(setRestaurant(item));
+  // }, []);
 
   return (
     <View className="flex-1 relative">

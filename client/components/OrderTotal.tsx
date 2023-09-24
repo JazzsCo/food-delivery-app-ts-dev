@@ -5,6 +5,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { themeColors } from "../theme";
 import { RootStackList } from "../Navigation";
+import { useAppSelector } from "../hooks";
+import { selectedCartItemsPrice } from "../slices/cartSlice";
 
 type OrderTotalNavigationProps = NativeStackNavigationProp<
   RootStackList,
@@ -13,6 +15,10 @@ type OrderTotalNavigationProps = NativeStackNavigationProp<
 
 const OrderTotal = () => {
   const navigation = useNavigation<OrderTotalNavigationProps>();
+
+  const menuFee = useAppSelector(selectedCartItemsPrice);
+  const deliveryFee = 20;
+  const orderTotal = menuFee + deliveryFee;
 
   return (
     <View
@@ -43,19 +49,21 @@ const OrderTotal = () => {
 
       <View className="flex-row justify-between">
         <Text className="text-gray-800 font-medium text-base">Menu Fee</Text>
-        <Text className="text-gray-800 font-medium text-base">$00</Text>
+        <Text className="text-gray-800 font-medium text-base">$ {menuFee}</Text>
       </View>
 
       <View className="flex-row justify-between">
         <Text className="text-gray-800 font-medium text-base">
           Delivery Fee
         </Text>
-        <Text className="text-gray-800 font-medium text-base">$ 00</Text>
+        <Text className="text-gray-800 font-medium text-base">
+          $ {deliveryFee}
+        </Text>
       </View>
 
       <View className="flex-row justify-between">
         <Text className="font-extrabold text-lg">Order Total</Text>
-        <Text className="font-extrabold text-base">$ 99</Text>
+        <Text className="font-extrabold text-base">$ {orderTotal}</Text>
       </View>
 
       <TouchableOpacity

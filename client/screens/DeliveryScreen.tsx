@@ -6,13 +6,14 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { themeColors } from "../theme";
-import { featured } from "../constants";
 import { RootStackList } from "../Navigation";
+import { useAppSelector } from "../hooks";
+import { selectedRestaurant } from "../slices/restaurantSlice";
 
 type DeliveryScreenNavigationProps = NativeStackNavigationProp<RootStackList>;
 
 const DeliveryScreen = () => {
-  const restaurant = featured.restaurants[0];
+  const restaurant = useAppSelector(selectedRestaurant)[0];
 
   const navigation = useNavigation<DeliveryScreenNavigationProps>();
 

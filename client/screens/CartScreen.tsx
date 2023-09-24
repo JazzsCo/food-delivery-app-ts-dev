@@ -8,7 +8,7 @@ import { themeColors } from "../theme";
 import { RootStackList } from "../Navigation";
 import MenuItem from "../components/MenuItem";
 import OrderTotal from "../components/OrderTotal";
-import { useAppDispatch, useAppSelector } from "../hooks";
+import { useAppSelector } from "../hooks";
 import { selectedRestaurant } from "../slices/restaurantSlice";
 import { selectedCartItems } from "../slices/cartSlice";
 import { Dish } from "../types";

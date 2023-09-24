@@ -38,8 +38,6 @@ const RestaurantScreen = () => {
     dispatch(setRestaurant(item));
   }, []);
 
-  console.log("restaurant", restaurant);
-
   return (
     <View className="flex-1 relative">
       <Image source={item.image} className="w-full h-[45%]" />
@@ -86,15 +84,8 @@ const RestaurantScreen = () => {
           }}
           showsVerticalScrollIndicator={false}
         >
-          {item.dishes.map(({ id, name, image, price, description }) => (
-            <MenuItem
-              key={id}
-              id={id}
-              name={name}
-              image={image}
-              price={price}
-              description={description}
-            />
+          {item.dishes.map((item) => (
+            <MenuItem key={item.id} {...item} />
           ))}
         </ScrollView>
       </View>

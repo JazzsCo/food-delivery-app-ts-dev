@@ -5,12 +5,13 @@ import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { themeColors } from "../theme";
-import { featured } from "../constants";
 import { RootStackList } from "../Navigation";
 import MenuItem from "../components/MenuItem";
 import OrderTotal from "../components/OrderTotal";
-
-const restaurant = featured.restaurants[0];
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { selectedRestaurant } from "../slices/restaurantSlice";
+import { selectedCartItems } from "../slices/cartSlice";
+import { Dish } from "../types";
 
 type CartScreenNavigationProps = NativeStackNavigationProp<
   RootStackList,
@@ -19,6 +20,24 @@ type CartScreenNavigationProps = NativeStackNavigationProp<
 
 const CartScreen = () => {
   const navigation = useNavigation<CartScreenNavigationProps>();
+
+  const restaurant = useAppSelector(selectedRestaurant)[0];
+  const cartItems = useAppSelector(selectedCartItems);
+
+  // duplicate, unduplicate objects and counts ==> I have this code from ChatGPT (main code)
+  const occurrences = [
+    ...cartItems.reduce((map, item) => {
+      const key = JSON.stringify(item);
+      map.set(key, (map.get(key) || 0) + 1);
+      return map;
+    }, new Map()),
+  ].map(([key, value]) => ({ item: JSON.parse(key), count: value }));
+
+  React.useEffect(() => {
+    if (!cartItems.length) {
+      navigation.goBack();
+    }
+  }, [cartItems.length]);
 
   return (
     <View className="flex-1 relative bg-white">
@@ -56,15 +75,8 @@ const CartScreen = () => {
           paddingBottom: 20,
         }}
       >
-        {restaurant.dishes.map(({ id, name, image, price, description }) => (
-          <MenuItem
-            key={id}
-            id={id}
-            name={name}
-            image={image}
-            price={price}
-            description={description}
-          />
+        {occurrences.map(({ item, count }: { item: Dish; count: number }) => (
+          <MenuItem key={item.id} {...item} />
         ))}
       </ScrollView>
 

@@ -24,9 +24,9 @@ const Categories = ({ categories }: CategoriesProps) => {
             style={{
               borderColor: themeColors.text,
               backgroundColor:
-                id === activeColor ? themeColors.bgColor(0.3) : "white",
+                id === activeColor ? themeColors.bgColor(0.3) : "gray",
             }}
-            className={"rounded-full border shadow-xl p-1 shadow-yellow-400"}
+            className={"rounded-full border shadow-xl p-1"}
           >
             <Image style={{ width: 45, height: 45 }} source={image} />
           </TouchableOpacity>

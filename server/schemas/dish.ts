@@ -1,15 +1,20 @@
 import {defineType} from 'sanity'
 
 export default defineType({
-  name: 'category',
-  title: 'Category',
+  name: 'dish',
+  title: 'Dish',
   type: 'document',
   fields: [
     {
       name: 'name',
-      title: 'Category name',
+      title: 'Dish name',
       type: 'string',
       validation: (rule) => rule.required(),
+    },
+    {
+      name: 'price',
+      title: 'Price',
+      type: 'number',
     },
     {
       name: 'description',
@@ -19,7 +24,7 @@ export default defineType({
     },
     {
       name: 'image',
-      title: 'Image of the category',
+      title: 'Image of the dish',
       type: 'image',
       validation: (rule) => rule.required(),
     },

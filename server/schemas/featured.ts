@@ -1,13 +1,13 @@
 import {defineType} from 'sanity'
 
 export default defineType({
-  name: 'category',
-  title: 'Category',
+  name: 'featured',
+  title: 'Featured Restaurants',
   type: 'document',
   fields: [
     {
       name: 'name',
-      title: 'Category name',
+      title: 'Restaurant name',
       type: 'string',
       validation: (rule) => rule.required(),
     },
@@ -18,10 +18,10 @@ export default defineType({
       validation: (rule) => rule.max(200),
     },
     {
-      name: 'image',
-      title: 'Image of the category',
-      type: 'image',
-      validation: (rule) => rule.required(),
+      name: 'restaurants',
+      title: 'Restaurants',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'restaurant'}]}],
     },
   ],
 })

@@ -36,7 +36,7 @@ export default defineType({
     {
       name: 'address',
       title: 'Restaurant address',
-      type: 'image',
+      type: 'string',
       validation: (rule) => rule.required(),
     },
     {
@@ -53,7 +53,7 @@ export default defineType({
     },
     {
       name: 'type',
-      title: 'Category',
+      title: 'Categories',
       type: 'reference',
       validation: (rule) => rule.required(),
       to: [{type: 'category'}],
